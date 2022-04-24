@@ -127,7 +127,7 @@ const ProfileSection = () => {
     const [sdm, setSdm] = React.useState(true);
     const [value, setValue] = React.useState('');
     const [notification, setNotification] = React.useState(false);
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
+    const [selectedIndex] = React.useState(1);
 
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
@@ -136,7 +136,7 @@ const ProfileSection = () => {
         axios
             .post( configData.API_SERVER + 'users/logout', {token: `${account.token}`}, { headers: { Authorization: `${account.token}` } })
             .then(function (response) {
-                
+
                 // Force the LOGOUT
                 //if (response.data.success) {
                     dispatcher({ type: LOGOUT });
